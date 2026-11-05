@@ -1,0 +1,1 @@
+import type {Country} from "../types/country"; export function filterCountries(countries:Country[],query:string,region:string):Country[]{return countries.filter(country=>country.name.toLowerCase().includes(query.trim().toLowerCase()) && (region === "" || country.region === region));}

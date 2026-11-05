@@ -1,0 +1,1 @@
+interface FlagProps {src:string; alt:string;} export function Flag({src,alt}:FlagProps){return <img className="flag" src={src} alt={alt} loading="lazy"/>;}

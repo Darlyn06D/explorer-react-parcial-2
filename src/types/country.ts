@@ -1,0 +1,1 @@
+export interface Country { code: string; name: string; population: number; region: string; capital: string; flag: string; }

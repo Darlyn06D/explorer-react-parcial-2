@@ -1,0 +1,1 @@
+interface BadgeProps {region:string;} export function Badge({region}:BadgeProps){return <span className="badge">{region}</span>;}
