@@ -1,6 +1,6 @@
 # Explorer App
 
-Aplicación web adaptable para explorar países. El listado permite buscar por nombre y filtrar por región; cada tarjeta abre una página de detalle con información del país. La información se consulta desde REST Countries.
+Aplicación web adaptable para explorar países. El listado permite buscar por nombre y filtrar por región; cada tarjeta abre una página de detalle con información del país. La información se consulta desde countries.dev API.
 
 **Autora:** Darlyn Dinora Andrade Zuniga · U20240714
 
@@ -8,10 +8,13 @@ Aplicación web adaptable para explorar países. El listado permite buscar por n
 
 ## Capturas
 
-Pendiente de añadir desde la versión publicada antes de la entrega:
+### Listado de países
 
-- `docs/capturas/listado.png`: listado con búsqueda y filtro visibles.
-- `docs/capturas/detalle.png`: página de detalle de un país.
+![Listado de países con búsqueda y filtro por región](docs/capturas/listado.jpg)
+
+### Detalle de un país
+
+![Detalle de Argentina](docs/capturas/detalle.jpg)
 
 ## Tecnologías
 
