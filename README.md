@@ -1,37 +1,86 @@
-# Explorer App con React
+# Explorer App
 
-Darlyn Dinora Andrade Zuniga - U20240714
+Aplicación web adaptable para explorar países. El listado permite buscar por nombre y filtrar por región; cada tarjeta abre una página de detalle con información del país. La información se consulta desde REST Countries.
 
-## Tecnologias
-React 18, TypeScript, Vite y Tailwind CSS v4.
+**Autora:** Darlyn Dinora Andrade Zuniga · U20240714
 
-## Ejecucion
-Instalar Node.js 22.12 o superior y pnpm.
-Ejecutar pnpm install y luego pnpm dev.
-En PowerShell utilizar pnpm.cmd si se bloquea pnpm.ps1.
-Compilar con pnpm build. Revisar con pnpm lint. Previsualizar con pnpm preview.
+**Curso:** Diseño Web Adaptable · UNIVO
 
-## Atomic Design
-Atoms: Flag y Badge.
-Molecules: CountryCard, SearchBar y RegionFilter.
-Organisms: Header y CountryGrid.
+## Capturas
 
-## Estado y callbacks
-App conserva query, region y menuOpen con useState.
-Header transmite valores y callbacks a los controles hijos.
-SearchBar llama onQueryChange al escribir. RegionFilter llama onRegionChange al seleccionar.
-App actualiza el estado y recalcula filteredCountries sin otro estado adicional.
+Pendiente de añadir desde la versión publicada antes de la entrega:
 
-## Datos y funcionamiento
-Tres registros locales: El Salvador, Japan y Canada.
-Banderas SVG locales simplificadas. Sin API ni React Router.
-Ver mas muestra el codigo del pais en la consola.
-Grid de cuatro columnas desde 1024px; la muestra contiene tres paises.
+- `docs/capturas/listado.png`: listado con búsqueda y filtro visibles.
+- `docs/capturas/detalle.png`: página de detalle de un país.
 
-## Comprobaciones manuales
-Sin filtros: 3 paises.
-Buscar SAL con espacios: El Salvador.
-America: El Salvador y Canada. Asia: Japan.
-Buscar can y America: Canada. Buscar can y Asia: sin resultados.
-Limpiar filtros restablece los tres paises.
-El menu movil abre y cierra.
+## Tecnologías
+
+- React 18 y TypeScript
+- Vite
+- Tailwind CSS v4 y CSS responsivo
+- React Router para navegación entre listado y detalle
+- countries.dev API para consultar los países sin configurar una clave
+
+## Requisitos
+
+- Node.js 22.12 o superior
+- pnpm
+
+## Instalación y ejecución
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Abre en el navegador la dirección local que Vite muestra en la terminal. Para generar la versión de producción y previsualizarla:
+
+```bash
+pnpm build
+pnpm preview
+```
+
+Para revisar el estilo del código:
+
+```bash
+pnpm lint
+```
+
+## Funcionalidades
+
+- Carga de todos los países desde countries.dev.
+- Búsqueda por nombre y filtro por región, que se pueden combinar.
+- Limpieza de los controles y mensaje cuando no hay coincidencias.
+- Tarjetas responsivas con bandera, nombre, región, capital y población.
+- Página de detalle con nombre nativo, capital, regiones, población, superficie, moneda, idiomas y fronteras.
+- Navegación sin recargar la página y enlaces directos por código de país.
+- Estados visibles de carga y error, con opción de volver a intentar.
+- Menú adaptable y controles etiquetados para facilitar su uso con teclado.
+
+## Organización del proyecto
+
+```text
+src/
+├── api/                 # Consultas y normalización de datos de REST Countries
+├── components/
+│   ├── atoms/           # Badge y Flag
+│   ├── molecules/       # CountryCard, SearchBar y RegionFilter
+│   └── organisms/       # CountryGrid y Header
+├── hooks/               # Hooks reutilizables de consulta de países
+├── pages/               # Listado, detalle y página 404
+└── types/               # Interfaces TypeScript
+```
+
+## Verificación manual
+
+1. Abre el listado y confirma que aparecen los países junto con su bandera, población, región y capital.
+2. Busca un país por nombre; luego combina una búsqueda con el filtro de región.
+3. Limpia los controles y verifica que vuelve el listado completo. Prueba una consulta sin coincidencias.
+4. Abre una tarjeta, revisa que el código de la URL corresponda con el país y usa el enlace para volver al listado.
+5. Actualiza directamente una dirección como `/country/sv` y comprueba que el detalle se abre correctamente.
+6. Revisa el menú y la distribución de controles en escritorio y móvil.
+7. Desconecta temporalmente la red para observar el mensaje de error y volver a intentar la carga.
+
+## Fuente de datos
+
+countries.dev API: <https://countries.dev/docs>
